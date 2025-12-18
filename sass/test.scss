@@ -1,0 +1,10 @@
+// @use './variable' as v;
+@use './variable' as *;
+@forward './parts';
+
+a {
+    color: $main-color;
+}
+div {
+    background-color: pink;
+}
