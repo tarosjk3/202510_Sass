@@ -1,8 +1,140 @@
+@use './variable' as *;
+@use './mixin' as *;
+@use 'sass:color';
+@use "sass:list";
+
 body {
     font-family: arial, sans-serif;
     color: #333;
+
+    @if $theme == dark {
+        background-color: #000;
+        color: #fff;
+    } @else {
+        background-color: #fff;
+        color: #000;
+    }
 }
 
 img {
     display: block;
+}
+
+// スペーシングユーティリティ
+@for $i from 1 through 5 {
+    .u-m-#{$i} { // .u-m-1 ~ .u-m-5
+        margin: 8px * $i !important;
+    }
+}
+
+/* 残るコメント */
+// 残らないコメント
+
+// プレースホルダー(%)
+%button-style {
+    border-radius: 8px;
+    padding: 8px 16px;
+    border: 1px solid;
+    display: inline-block;
+}
+
+.button-primary {
+    @extend %button-style;
+    background-color: blue;
+    color: #fff;
+}
+
+.button-alert {
+    @extend %button-style;
+    background-color: red;
+    color: #fdd;
+}
+
+// ネスト（入れ子）
+.p-aboutus {
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    &__content {
+        font-size: 1.2rem;
+        line-height: 1.8;
+
+        // 幅広バージョン
+        &--wide {
+            max-width: 1200px;
+        }
+    }
+
+    &__btnarea {
+        text-align: center;
+    }
+
+    body.is-open h2 {
+        font-weight: normal;    
+    }
+    @at-root body.is-open & h2 {
+        font-weight: semibold;
+    }
+}
+
+$font-size: 100px;
+@debug $font-size;
+@warn $font-size;
+// @error $font-size;
+
+
+
+.test {
+    @include mq(60px, 120px) {
+        font-size: 2rem;
+        line-height: 1.5;
+    }
+}
+.test2 {
+    @include mq;
+}
+
+
+
+.test3 {
+    @include mediaquery(small) {
+        background-color: yellow;
+        color: orange;
+    }
+}
+
+.test4 {
+    @include mediaquery(medium) {
+        background-color: purple;
+        color: white;
+    }
+}
+
+// 色関数
+.p-pricelist {
+    $bgcolor: #9d9d9d;
+
+    background: color.adjust($bgcolor, $lightness: 20%);
+    color: color.adjust($bgcolor, $lightness: -20%);
+}
+
+$button-colors: (
+    'info': skyblue,
+    'warning': orange,
+    'alert': red,
+);
+
+@each $key, $value in $button-colors {
+    .btn-#{$key} {
+        background-color: $value;
+    }
+}
+
+// list
+$sizes: 10, 20, 30; // Sassの配列
+
+@for $i from 1 through list.length($sizes) {
+    .text-#{list.nth($sizes, $i)} {
+        font-size: #{list.nth($sizes, $i)}px;
+    }
 }

@@ -1,10 +1,131 @@
+@charset "UTF-8";
 body {
   font-family: arial, sans-serif;
   color: #333;
+  background-color: #000;
+  color: #fff;
 }
 
 img {
   display: block;
+}
+
+.u-m-1 {
+  margin: 8px !important;
+}
+
+.u-m-2 {
+  margin: 16px !important;
+}
+
+.u-m-3 {
+  margin: 24px !important;
+}
+
+.u-m-4 {
+  margin: 32px !important;
+}
+
+.u-m-5 {
+  margin: 40px !important;
+}
+
+/* 残るコメント */
+.button-alert, .button-primary {
+  border-radius: 8px;
+  padding: 8px 16px;
+  border: 1px solid;
+  display: inline-block;
+}
+
+.button-primary {
+  background-color: blue;
+  color: #fff;
+}
+
+.button-alert {
+  background-color: red;
+  color: #fdd;
+}
+
+.p-aboutus {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+.p-aboutus__content {
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+.p-aboutus__content--wide {
+  max-width: 1200px;
+}
+.p-aboutus__btnarea {
+  text-align: center;
+}
+.p-aboutus body.is-open h2 {
+  font-weight: normal;
+}
+body.is-open .p-aboutus h2 {
+  font-weight: semibold;
+}
+
+@media screen and (min-width: 768px) {
+  .test {
+    font-size: 2rem;
+    line-height: 1.5;
+    margin-top: 60px;
+    padding-bottom: 120px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .test2 {
+    margin-top: 40px;
+    padding-bottom: 80px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .test3 {
+    background-color: yellow;
+    color: orange;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .test4 {
+    background-color: purple;
+    color: white;
+  }
+}
+
+.p-pricelist {
+  background: #d0d0d0;
+  color: #6a6a6a;
+}
+
+.btn-info {
+  background-color: skyblue;
+}
+
+.btn-warning {
+  background-color: orange;
+}
+
+.btn-alert {
+  background-color: red;
+}
+
+.text-10 {
+  font-size: 10px;
+}
+
+.text-20 {
+  font-size: 20px;
+}
+
+.text-30 {
+  font-size: 30px;
 }
 
 a {
